@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Electricity Monitor</string>
+    <string name="power_is_on">Power is on!</string>
+    <string name="power_is_off">Power is off…</string>
+    <!--<string name="time_on_formatted" formatted="false">Your power has been on for %d minutes</string>
+      <string name="time_off_formatted" formatted="false">Oh no. Your power has been off for %d minutes.</string>
+    -->
+    <plurals name="time_on_formatted" formatted="false">
+        <item quantity="one">Your power has been on for %d minute.</item>
+        <item quantity="zero">Your power has just come on.</item>
+        <item quantity="other">Your power has been on for %d minutes.</item>
+    </plurals>
+
+    <plurals name="time_off_formatted">
+        <item quantity="zero">Your power has just gone off. Good luck.</item>
+        <item quantity="one">Oh no. Your power has been off for %d minute.</item>
+        <item quantity="other">Oh no. Your power has been off for %d minutes.</item>
+    </plurals>
+
+    <string name="time_on_formatted_hours_min" formatted="false">Your electricity has been on for %d hours and %d minutes.</string>
+    <string name="time_on_formatted_days_hours_min" formatted="false">Wow! Your electricity has been on for %d days, %d hours and %d minutes.</string>
+    <string name="time_off_formatted_hours_min" formatted="false">Oh my. Power has been off for %d hours and %d minutes. Time to order take out.</string>
+    <string name="time_off_formatted_days_hours_min" formatted="false">Move out. Empty your fridge contents. Power has been out for %d days, %d hours and %d minutes.</string>
 </resources>

@@ -3,6 +3,7 @@
           package="za.co.riggaroo.electricitymonitor">
 
     <application
+        android:name=".ElectricityMonitorApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -16,10 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.IOT_LAUNCHER"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.IOT_LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>
