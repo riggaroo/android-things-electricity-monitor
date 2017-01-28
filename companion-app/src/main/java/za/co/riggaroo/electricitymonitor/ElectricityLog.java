@@ -31,4 +31,6 @@ public class ElectricityLog {
     public void setTimestampOff(final Long timestampOff) {
         this.timestampOff = timestampOff;
     }
+
+
 }

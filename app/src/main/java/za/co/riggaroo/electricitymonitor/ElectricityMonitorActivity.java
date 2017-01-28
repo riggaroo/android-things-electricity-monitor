@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,6 +14,8 @@ import com.google.firebase.database.ValueEventListener;
 public class ElectricityMonitorActivity extends AppCompatActivity {
     public static final String FIREBASE_LOGS = "logs";
     private static final String TAG = "ElectricityMonitor";
+    public static final String FIREBASE_ONLINE_ENDPOINT = "/online";
+    public static final String FIREBASE_INFO_CONNECTED = ".info/connected";
     private DatabaseReference firebaseDatabase;
     private ElectricityLog electricityLog;
 
@@ -28,8 +29,8 @@ public class ElectricityMonitorActivity extends AppCompatActivity {
 
         electricityLog = new ElectricityLog();
 
-        final DatabaseReference onlineRef = firebaseDatabase.child(".info/connected");
-        final DatabaseReference currentUserRef = firebaseDatabase.child("/online");
+        final DatabaseReference onlineRef = firebaseDatabase.child(FIREBASE_INFO_CONNECTED);
+        final DatabaseReference currentUserRef = firebaseDatabase.child(FIREBASE_ONLINE_ENDPOINT);
         onlineRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
@@ -43,13 +44,7 @@ public class ElectricityMonitorActivity extends AppCompatActivity {
                     currentUserRef.onDisconnect().setValue(false);
 
                     electricityLog.setTimestampOff(ServerValue.TIMESTAMP);
-                    currentLogDbRef.onDisconnect().setValue(electricityLog, new DatabaseReference.CompletionListener() {
-                        @Override
-                        public void onComplete(final DatabaseError databaseError,
-                                               final DatabaseReference databaseReference) {
-                            Log.d(TAG, "onComplete listener, disconnect");
-                        }
-                    });
+                    currentLogDbRef.onDisconnect().setValue(electricityLog);
 
                 }
             }

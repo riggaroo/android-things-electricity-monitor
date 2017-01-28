@@ -1,54 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraint_layout_container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/color_lights_on_background"
-    tools:context="za.co.riggaroo.electricitymonitor.OverviewActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/image_view_electricity_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/lights_off_house" />
+    <data>
 
-    <TextView
-        android:id="@+id/text_view_overall_status"
-        style="@style/TextAppearance.AppCompat.Display2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:layout_marginTop="32dp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Power is on"
-        app:layout_constraintHorizontal_bias="0.503"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp" />
+        <variable
+            name="electricityModel"
+            type="za.co.riggaroo.electricitymonitor.ElectricityViewModel" />
+    </data>
 
-    <TextView
-        android:id="@+id/text_view_time_elapsed"
+    <android.support.constraint.ConstraintLayout
+
+        android:id="@+id/constraint_layout_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="31dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        tools:text="New record! You have had power for 7 days!" />
+        android:layout_height="match_parent"
+        android:background="@{electricityModel.powerOn ? @color/color_lights_on_background : @color/color_lights_off_background}"
+        tools:context="za.co.riggaroo.electricitymonitor.OverviewActivity">
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/image_view_electricity_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{electricityModel.powerOn ? @drawable/lights_on_house : @drawable/lights_off_house}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/text_view_overall_status"
+            style="@style/TextAppearance.AppCompat.Display2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:text="@{electricityModel.powerOn ? @string/power_is_on : @string/power_is_off}"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Power is on" />
+
+        <TextView
+            android:id="@+id/text_view_time_elapsed"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="31dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:text="@{electricityModel.elapsedTimeFormatted}"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="New record! You have had power for 7 days!" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
+
+
