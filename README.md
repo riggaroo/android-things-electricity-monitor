@@ -1,15 +1,16 @@
 # Electricity Monitor
 
-For those who may not know, I live in South Africa. A country that has been battling power problems for a few years. 
+For those who may not know, I live in South Africa, a country where we sometimes battle with electricity.  
 Hey we even have apps that give out "load-shedding" schedules. 
 
 While this is fine and occasionally works when the schedules are actually uploaded, we have a lot of 
 "unplanned" power outages that can go on for hours (sometimes even days).
 
 Which leaves me asking myself the following questions:
-1. Do I have power at home right now?
-2. If not, how long has the power been out for?
-3. Is it okay to eat the contents of my freezer? Or should I not risk it?
+
+- Do I have power at home right now?
+- If not, how long has the power been out for?
+- Is it okay to eat the contents of my freezer? 
 
 ## Introducing "electricity monitor"... ##
 
@@ -30,11 +31,12 @@ It will then also display information about how long the electricity has been of
 <img src="art/power_off.png" alt="phone image" width="200px" />
 
 ## Setup Requirements
-Before running the app, you need to 
+Before running the app, you need to:
+
 1. Create a Firebase Project, 
 2. Download the google-service.json file to both the app folder and the companion-app folder
 3. Deploy "app" to the Raspberry Pi or equivalent Android Things device.
 4. Deploy "companion-app" to your phone. 
 
 ## Yes I know...
-- There are easier ways to monitor your power at home
+There are easier ways to monitor your power at home...
