@@ -59,7 +59,9 @@ public class ElectricityViewModel {
         Duration duration = getDifferenceBetweenTimeAndNow(timestamp);
 
         String text;
-        if (duration.toMinutes() < 60) {
+        if (duration.toMinutes() < 1) {
+            text = resources.getString(R.string.few_seconds);
+        } else if (duration.toMinutes() < 60) {
             text = resources.getQuantityString(R.plurals.mins_formatted, (int) duration.toMinutes(),
                     (int) duration.toMinutes());
         } else if (duration.toHours() < 24) {

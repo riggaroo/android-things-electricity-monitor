@@ -14,7 +14,7 @@
     <plurals name="mins_formatted">
         <item quantity="zero">a few seconds</item>
         <item quantity="one">1 minute</item>
-        <item quantity="few">%d minutes</item>
+        <item quantity="other">%d minutes</item>
     </plurals>
     <plurals name="days_formatted">
         <item quantity="one">1 day</item>
