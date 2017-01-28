@@ -6,6 +6,7 @@
     <string name="time_off_formatted" formatted="false">Oh no. Your power has been off for %s.</string>
     <string name="power_has_been_on_for">Yay! Your power has been on for</string>
     <string name="power_has_been_off_for">Oh no! Your power has been off for</string>
+    <string name="few_seconds">a few seconds</string>
 
     <plurals name="hours_formatted">
         <item quantity="one">1 hour</item>
