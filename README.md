@@ -23,14 +23,11 @@ So this app works in the following way:
 1. Run the "app" project to a Raspberry Pi 3. Make sure the Raspberry Pi is connected to the internet.
 2. Run the "companion-app" on your every day device. 
 3. If you have power, you should see a house with lights on and the accumulated time you have had power for. 
+4. If you don't have power, the Raspberry Pi will lose its power source and trigger the onDisconnected() callbacks on the Firebase server,this will then show up in our "companion-app" and the lights in the house will go off. 
+It will then also display information about how long the electricity has been off for. 
 
 <img src="art/power_on.png" alt="phone image" width="200px" />
-4. If you don't have power, the Raspberry Pi will lose its power source and trigger the onDisconnected() callbacks on the Firebase server,this will then show up in our "companion-app" and the lights in the house will go off. 
 <img src="art/power_off.png" alt="phone image" width="200px" />
-
-It will then also display information about how long the electricity has been off for. 
-Cool right?
-
 
 ## Setup Requirements
 Before running the app, you need to 
