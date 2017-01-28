@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "259024662418",
+    "firebase_url": "https://electricitymonitor-ed838.firebaseio.com",
+    "project_id": "electricitymonitor-ed838",
+    "storage_bucket": "electricitymonitor-ed838.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259024662418:android:cfaca79b63f2bdab",
+        "android_client_info": {
+          "package_name": "za.co.riggaroo.electricitymonitor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "259024662418-116446pah6661aifm62lqh4skmrs8pr4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiNGPY53tAsMCM2pppUT7WacqxWIYKG0E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
