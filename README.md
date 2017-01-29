@@ -47,7 +47,7 @@ Before running the app, you need to:
 ## Yes I know...
 - There are easier ways to monitor your power at home
 - This is basically monitoring my Pi's connection to the internet and not power, which in most cases will be accurate enough for me as I am hardly without internet. (I guess this could be rebranded as - "Do I have Internet at home?") 
-- Yes there is *no* security on the database right now, luckily its not controlling my power. (pull requests are welcome :bow-tie:) 
+- Yes there is *no* security on the database right now, luckily its not controlling my power. (pull requests are welcome :bowtie:) 
 - This should probably be moved into a background service so it can run in the background. 
 - You might not understand the need for this app, which is okay, it is useful for me and hopefully fellow South Africans :smile:
 
