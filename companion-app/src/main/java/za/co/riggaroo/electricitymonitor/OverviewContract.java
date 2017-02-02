@@ -4,6 +4,11 @@ package za.co.riggaroo.electricitymonitor;
 public interface OverviewContract {
 
     interface View {
+
+        void showLoading();
+
+        void hideLoading();
+
         void updateViewModel(ElectricityViewModel electricityViewModel);
     }
 

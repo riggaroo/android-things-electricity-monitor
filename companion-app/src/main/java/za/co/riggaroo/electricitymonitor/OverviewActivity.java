@@ -28,6 +28,13 @@ public class OverviewActivity extends AppCompatActivity implements OverviewContr
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        binding.setElectricityModel(electricityViewModel);
+        binding.notifyPropertyChanged(za.co.riggaroo.electricitymonitor.BR.electricityModel);
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         presenter.detach();
@@ -45,9 +52,23 @@ public class OverviewActivity extends AppCompatActivity implements OverviewContr
     }
 
     @Override
+    public void showLoading() {
+        electricityViewModel.setLoading(true);
+        binding.setElectricityModel(electricityViewModel);
+        binding.notifyPropertyChanged(za.co.riggaroo.electricitymonitor.BR.electricityModel);
+    }
+
+    @Override
+    public void hideLoading() {
+        electricityViewModel.setLoading(false);
+        binding.setElectricityModel(electricityViewModel);
+        binding.notifyPropertyChanged(za.co.riggaroo.electricitymonitor.BR.electricityModel);
+    }
+
+    @Override
     public void updateViewModel(final ElectricityViewModel electricityViewModel) {
         binding.setElectricityModel(electricityViewModel);
-        binding.notifyPropertyChanged(BR.electricityModel);
+        binding.notifyPropertyChanged(za.co.riggaroo.electricitymonitor.BR.electricityModel);
         if (electricityViewModel.isPowerOn()) {
             getWindow().setStatusBarColor(
                     ContextCompat.getColor(getApplicationContext(), R.color.color_lights_on_background_darker));

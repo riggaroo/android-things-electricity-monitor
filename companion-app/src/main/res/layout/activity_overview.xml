@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="electricityModel"
             type="za.co.riggaroo.electricitymonitor.ElectricityViewModel" />
@@ -15,7 +17,7 @@
         android:id="@+id/constraint_layout_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@{electricityModel.powerOn ? @color/color_lights_on_background : @color/color_lights_off_background}"
+        android:background="@{electricityModel.powerOn || electricityModel.loading ? @color/color_lights_on_background : @color/color_lights_off_background}"
         tools:context="za.co.riggaroo.electricitymonitor.OverviewActivity">
 
         <ImageView
@@ -23,6 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@{electricityModel.powerOn ? @drawable/lights_on_house : @drawable/lights_off_house}"
+            android:visibility="@{electricityModel.loading ? View.GONE : View.VISIBLE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -41,6 +44,7 @@
             android:text="@{electricityModel.powerOn ? @string/power_is_on : @string/power_is_off}"
             android:textColor="@color/white"
             android:textStyle="bold"
+            android:visibility="@{electricityModel.loading ? View.GONE : View.VISIBLE}"
             app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -57,11 +61,21 @@
             android:text="@{electricityModel.elapsedTimeFormatted}"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:visibility="@{electricityModel.loading ? View.GONE : View.VISIBLE}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             tools:text="New record! You have had power for 7 days!" />
 
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:visibility="@{electricityModel.loading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 </layout>
 

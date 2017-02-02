@@ -11,8 +11,10 @@ import org.threeten.bp.ZoneId;
 
 public class ElectricityViewModel {
 
+
+    private boolean isLoading;
     private final Resources resources;
-    private Boolean isPowerOn;
+    private Boolean isPowerOn = true;
     private Long timeOn;
     private Long timeOff;
 
@@ -53,6 +55,14 @@ public class ElectricityViewModel {
         } else {
             return resources.getString(R.string.power_has_been_off_for) + " " + getDurationFormatted(timeOff);
         }
+    }
+
+    public boolean isLoading() {
+        return isLoading;
+    }
+
+    public void setLoading(final boolean loading) {
+        isLoading = loading;
     }
 
     private String getDurationFormatted(final long timestamp) {

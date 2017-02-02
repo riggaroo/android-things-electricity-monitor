@@ -37,6 +37,10 @@ public class OverviewPresenter implements OverviewContract.Presenter {
 
     @Override
     public void loadPowerInformation() {
+        if (!isViewAttached()) {
+            throw new IllegalArgumentException("View not attached, cannot call loadPowerInformation");
+        }
+        view.showLoading();
         final DatabaseReference firebaseDatabase = FirebaseDatabase.getInstance().getReference();
 
         final DatabaseReference onlineRef = firebaseDatabase.child(FIREBASE_ONLINE);
@@ -49,6 +53,7 @@ public class OverviewPresenter implements OverviewContract.Presenter {
                 Log.d(TAG, "onDataChange: value:" + dataSnapshot.getValue() + ". Key:" + dataSnapshot.getKey());
                 boolean isOnline = (boolean) dataSnapshot.getValue();
                 electricityViewModel.setIsPowerOn(isOnline);
+                view.hideLoading();
                 view.updateViewModel(electricityViewModel);
             }
 
@@ -70,6 +75,7 @@ public class OverviewPresenter implements OverviewContract.Presenter {
 
                     electricityViewModel.setTimeOff(electricityLog.getTimestampOff());
                     electricityViewModel.setTimeOn(electricityLog.getTimestampOn());
+                    view.hideLoading();
                     view.updateViewModel(electricityViewModel);
 
                 }
