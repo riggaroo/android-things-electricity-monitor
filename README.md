@@ -25,48 +25,45 @@ Mainly because Firebase has a *VERY* powerful tool for monitoring if a client is
 In order to get the app running yourself, you need to:
 
 1. Checkout this repository.
-2. Create a new Firebase Project [here.]("https://firebase.google.com")
+2. Create a new Firebase Project [here](https://firebase.google.com).
 3. Download the *google-service.json* file from the Firebase Console to both the app folder and the companion-app folder.
-4. Set the Realtime database rules to be read and write for everyone (Firebase Console 
--> Database -> Rules). (WARNING: This means there is NO security on our database – 
-you should not have these rules in production)
-```
-{
-     "rules": {
-         ".read": true,
-         ".write": true
-     }
- }
-```
+4. Set the Realtime database rules to be read and write for everyone (Firebase Console -> Database -> Rules). (WARNING: This means there is NO security on our database – you should not have these rules in production)
+
+	    {
+	     "rules": {
+	         ".read": true,
+	         ".write": true
+	       }
+	    }
 
 5. Deploy the “app” module to the Raspberry Pi or equivalent Android Things device (you need to make sure you have setup your Pi with the Android Things OS).
 6. Deploy the “companion-app” module to your phone.
-7. If you have electricity, you will see a house with lights on and the accumulated time you have had power for. If you don’t have electricity, the Raspberry Pi will lose its power source and trigger the onDisconnect()  callback on the Firebase server. This will then show up in our “companion-app” , it will display how long the electricity has been off for.
+7. If you have electricity, you will see a house with lights on and the accumulated time you have had power for. If you don’t have electricity, the Raspberry Pi will lose its power source and trigger the `onDisconnect()`  callback on the Firebase server. This will then show up in our “companion-app” , it will display how long the electricity has been off for.
 
 
-# Firebase Cloud Function/ Push Notification setup 
+## Push Notification setup using Firebase Cloud Functions
 If you want to enable notifications for when your power goes off and on, you can follow the below guide. 
-By leveraging Firebase Cloud Functions, we are able to easily send push notifications to any device with the companion-app installed 
+By leveraging [Firebase Cloud Functions](https://firebase.google.com/docs/functions/get-started), we are able to easily send push notifications to any device with the companion-app installed 
 to notify them when the power has been cut. 
 
-1. Make sure you have NodeJS and NPM installed. You can follow the guide [here]("https://nodejs.org/") to install it.
+1. Make sure you have NodeJS and NPM installed. You can follow the guide [here](https://nodejs.org/) to install it.
 2. Install Firebase CLI tools:
-```
-    npm install -g firebase-tools
-```
-3. Initialize the required dependencies by navigating into the `cloud-functions` folder:
-```
-    cd cloud-functions
-    npm install 
-```
+
+	    npm install -g firebase-tools
+
+3. Initialize the required dependencies by navigating into the `cloud-functions` folder: 
+
+    	cd cloud-functions
+    	npm install 
+
 4. Login with Firebase (this will prompt you to login via Browser):
-```
-firebase login
-```
+
+	    firebase login
+
 5. Run the following command to deploy the Firebase functions:
-```
-firebase deploy --only functions
-```
+
+	    firebase deploy --only functions
+
 6. You should then be able to see the functions appear in the Firebase Console as seen below:
 
 <img src="art/firebase_functions.png" alt="firebase console"  />
