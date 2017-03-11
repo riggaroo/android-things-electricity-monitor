@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.jakewharton.threetenabp.AndroidThreeTen;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -19,10 +20,7 @@ public class ElectricityApplication extends Application {
                         .build());
         AndroidThreeTen.init(this);
         FirebaseApp.initializeApp(this);
+        FirebaseMessaging.getInstance().subscribeToTopic("Power_Notifications");
     }
 
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-    }
 }

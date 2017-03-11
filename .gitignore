@@ -7,3 +7,5 @@
 .externalNativeBuild
 .idea/
 */google-services.json
+
+cloud-functions/.firebaserc
