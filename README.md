@@ -24,7 +24,7 @@ Mainly because Firebase has a *VERY* powerful tool for monitoring if a client is
 
 In order to get the app running yourself, you need to:
 
-1. Checkout the repository here.
+1. Checkout this repository.
 2. Create a new Firebase Project [here.]("https://firebase.google.com")
 3. Download the *google-service.json* file from the Firebase Console to both the app folder and the companion-app folder.
 4. Set the Realtime database rules to be read and write for everyone (Firebase Console 
@@ -69,7 +69,7 @@ firebase deploy --only functions
 ```
 6. You should then be able to see the functions appear in the Firebase Console as seen below:
 
-<img src="art/firebase_functions.png" alt="firebase console" width="400px" />
+<img src="art/firebase_functions.png" alt="firebase console"  />
 
 
 ## Yes I know...
