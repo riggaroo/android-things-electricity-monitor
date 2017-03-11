@@ -1,0 +1,9 @@
+{
+  "name": "electricity-monitor",
+  "description": "Push Notifications for Electricity monitor",
+  "dependencies": {
+    "firebase-admin": "^4.1.2",
+    "firebase-functions": "^0.5"
+  },
+  "private": true
+}
