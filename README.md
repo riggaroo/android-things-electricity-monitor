@@ -68,6 +68,8 @@ to notify them when the power has been cut.
 
 <img src="art/firebase_functions.png" alt="firebase console"  />
 
+Now when your Android Things device disconnects from power/internet, you will receive a push notification to your devices running the companion app. As seen below:
+<img src="art/push_notification.png" alt="push notification image" />
 
 ## Yes I know...
 - There are easier ways to monitor your power at home
