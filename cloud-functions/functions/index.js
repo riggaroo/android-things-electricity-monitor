@@ -11,7 +11,7 @@ exports.sendPowerNotification = functions.database.ref("/online").onWrite((event
     if (!data.changed()) {
         return;
     }
-    const status = event.data.val();
+    const status = data.val();
     const onOff =  status ? "on": "off";
 
     const payload = {
