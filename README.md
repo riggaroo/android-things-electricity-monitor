@@ -53,7 +53,7 @@ to notify them when the power has been cut.
 
 3. Initialize the required dependencies by navigating into the `cloud-functions` folder: 
 
-    	cd cloud-functions
+    	cd cloud-functions , cd functions
     	npm install 
 
 4. Login with Firebase (this will prompt you to login via Browser):
